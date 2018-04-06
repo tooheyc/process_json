@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="People object manager.">
+    <meta name="keywords" content="test">
+
+    <title>People Table</title>
+    <!-- Scripts -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/table.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="./css/table.min.css">
+</head>
+<body>
+<div class="main">
+    <h3>SORTING DATA: {{dataSet}}</h3>
+
+    <div class="selects">
+        <form id="setSource" method="post" action="./setSource">
+            <input type="hidden" id="column" name="column">
+            <input type="hidden" id="order" name="order">
+            <label for="sources">Select a data source: </label>
+            <select onchange="setSource(this.value)" id="sources" name="source">
+                {{options}}
+            </select>
+        </form>
+    </div>
+    <div class="selects">
+        Select sort type:
+        <button id="asc" class="notSelected" onclick="setDir(this.id);">Ascending</button>
+        <button id="desc" class="selected" onclick="setDir(this.id);">Descending</button>
+    </div>
+    Click on a column head to sort entries by that attribute.
+</div>
+<div class="main">
+    {{table}}
+</div>
+<div class="main">
+    {{bad}}
+</div>
+<script>
+    function setSortDir() {
+        sortOrder.order = '{{dir}}';
+        sortOrder.column = '{{col}}';
+        var opposite = {
+            asc: 'desc',
+            desc: 'asc'
+        };
+        setSelection(sortOrder.order, opposite);
+    }
+    //setSortDir();
+</script>
+</body>
+</html>

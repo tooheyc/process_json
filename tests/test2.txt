@@ -1,0 +1,10 @@
+{"FName":"ŒBob","LName":"Rasputin","Age":"25"},
+{"FName":"Larry","LName":"polanski","Age":"24"},
+{"FName":"¶Lawrence","LName":"smith","Age":"41"},
+{"FName":"Sonny","LName":"liston","Age":"75"},
+{"FName":"ëMary","LName":"Lamb","Age":"33"},
+{"FName":"ìMax","LName":"Xzavier","Age":"26"},
+{"FName":"Steve","LName":"fiLman","Age":"cat"},
+{"FName":"Sarah","LName":"Sullivan", "title":"Manager", "Age":"25"},
+{"FName":"Thomas","LName":"Govenator","Age":"25"},
+{"LName":"Anderson","Age":"54"}]

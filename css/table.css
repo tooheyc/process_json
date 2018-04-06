@@ -1,0 +1,75 @@
+.selected {
+	background: #0489B5;
+	color: white;
+}
+
+.notSelected {
+	background: #EBF6FA;
+	color: black;
+}
+
+.selected:hover, .notSelected:hover {
+    background: #04A8DE;
+	color: white;
+}
+
+input[type=submit] {
+    background: #EBF6FA;
+    color: black;
+    border: 1px solid black;
+    padding: 2px 5px 2px 5px;
+    margin-left: 15px;
+}
+
+input[type=submit]:hover {
+    background: #777777;
+    color: white;
+}
+
+.main {
+    margin: 10px;
+    line-height: 130%;
+}
+
+.selects {
+    line-height: 130%;
+    margin-bottom: 15px;
+}
+
+#asc, #desc {
+    border: 1px solid black;
+    padding: 2px 5px 2px 5px;
+    margin-right: 5px;
+}
+
+table {
+	border: 1px solid black;
+    background: #EEEEEE;
+	width: 95%;
+    table-layout:fixed;
+}
+
+th {
+	min-width: 20%;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+}
+
+td {
+	padding: 0px 5px 0px 5px;
+	text-align: center;
+    width: 30%;
+    height: auto;
+    max-width: 300px;
+    overflow: scroll;
+    word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+	background-color: #FFFFFF;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
