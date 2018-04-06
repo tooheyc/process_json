@@ -6,6 +6,7 @@ class routes
 
     public function __construct()
     {
+        require './config/config.php';
         $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
         if (array_key_exists($request_uri, $this->uri)) {
             include './controllers/'.$this->uri[$request_uri];

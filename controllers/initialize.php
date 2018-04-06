@@ -9,13 +9,13 @@ if (isset($_SESSION['source'])) {
 }
 
 // Process the json into "good" and "bad" data sets.
-$people = new peopleObjectHandler($json);
+$people = new peopleObjectHandler($config, $json);
 $sortField = 'LName';
 $direction = 'desc';
 // Sort both data sets by default setting (First name, descending order).
 $people->sortPeople($sortField, $direction);
 
 // Generate the table(s) and/or error messages.
-$view = new viewTable($people);
+$view = new viewTable($config, $people);
 $view->generateHMTL($sortField);
 $view->output_page();

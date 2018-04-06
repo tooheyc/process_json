@@ -9,12 +9,12 @@ class peopleObjectHandler
      *
      * @return void
      */
-    public function __construct($json = false)
+    public function __construct($config, $json = false)
     {
         if ($json) {
             $json = iconv("UTF-8", "UTF-8//IGNORE", $json);
             $objArr = json_decode($json);
-            if ($objArr) $this->makeArray($objArr);
+            if ($objArr) $this->makeArray($config, $objArr);
         }
     }
 
@@ -23,11 +23,11 @@ class peopleObjectHandler
      *
      * @return void
      */
-    protected function makeArray($data)
+    protected function makeArray($config, $data)
     {
         foreach ($data AS $key => $value) {
             if (!is_array($value)) {
-                $individual = new person($value);
+                $individual = new person($config, $value);
                 if ($individual->isValid()) {
                     $this->people[] = $individual;
                 } else {
@@ -65,7 +65,7 @@ class peopleObjectHandler
     public function sortPeople($field, $dir = 'desc')
     {
         usort($this->people, $this->sortByField($field, $dir));
-        if(substr($field, -3) == "Too") $field = substr($field, 0, -3);
+        if (substr($field, -3) == "Too") $field = substr($field, 0, -3);
         usort($this->badPeople, $this->sortByField($field, $dir));
     }
 
@@ -84,9 +84,9 @@ class peopleObjectHandler
             if ($field == 'Age') {
                 $aFloat = (float)$a->getField($field);
                 $bFloat = (float)$b->getField($field);
-                if($aFloat == $bFloat) {
+                if ($aFloat == $bFloat) {
                     $result = 0;
-                } else if($aFloat > $bFloat) {
+                } else if ($aFloat > $bFloat) {
                     $result = $values[$direction];
                 } else {
                     $result = -$values[$direction];

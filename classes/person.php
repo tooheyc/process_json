@@ -3,25 +3,23 @@
 class person
 {
     protected $FName, $LName, $Age, $Errs = '';
-    public $minAge = 0, $maxAge = 130, $maxLen = 100;
-    public $filter = ['FName', 'LName', 'Age'];
+    public $minAge, $maxAge, $maxLen;
+    public $filter;
     private $isValid = true;
-    private $messages = [
-        'Age' => ['notNum' => 'Age is not numeric.', 'young' => 'Age is less than ', 'old' => 'Age is greater than '],
-        'long' => ' is longer than ',
-        'empty' => ' is empty. '
-    ];
+    private $messages;
 
     /*
      * Assign attributes, verify that only expected (and all expected) fields have been received.
      *
      * @return void
      */
-    public function __construct($stObj)
+    public function __construct($config, $stObj)
     {
-        $this->messages['Age']['young'] .= $this->minAge . ". ";
-        $this->messages['Age']['old'] .= $this->maxAge . ". ";
-        $this->messages['long'] .= $this->maxLen . " characters. ";
+        // Set configurable parameters.
+        $configElements = ['messages', 'filter', 'minAge','maxAge', 'maxLen'];
+        foreach($configElements as $key) {
+            $this->$key = $config[$key];
+        }
 
         foreach ($stObj as $attribute => $value) {
             if (in_array($attribute, $this->filter)) {

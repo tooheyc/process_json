@@ -2,15 +2,17 @@
 
 class viewTable
 {
-    protected $tableHeads = ['FName' => 'First Name', 'LName' => "Last Name", 'Age' => 'Age'];
-    protected $options = ['default' => '24 Data JSON file', 'test1' => 'Test case 1', 'test2' => 'Test case 2', 'test3' => 'Test case 3'];
-
+    protected $tableHeads;
+    protected $options;
     /*
      *  Initialize with "good" and "bad" data sets.
      * @return void
     */
-    public function __construct(peopleObjectHandler $peeps)
+    public function __construct($config, peopleObjectHandler $peeps)
     {
+        $this->tableHeads = $config['tableHeads'];
+        $this->options = $config['options'];
+
         $this->people = $peeps->get();
         $this->badPeople = $peeps->getBad();
         $this->output = '';

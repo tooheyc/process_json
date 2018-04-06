@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_POST['source']) && isset($_POST['column']) && isset($_POST['order']) ) {
+if (isset($_POST['source']) && isset($_POST['column']) && isset($_POST['order'])) {
     $sources = ['test1', 'test2', 'test3'];
 
     // Decide whether to load data from a file or pull it from the web.
@@ -17,7 +17,7 @@ if (isset($_POST['source']) && isset($_POST['column']) && isset($_POST['order'])
     }
 
     // Process the json into "good" and "bad" data sets.
-    $people = new peopleObjectHandler($json);
+    $people = new peopleObjectHandler($config, $json);
 
     $col = str_replace('Too', '', $_POST['column']);
     $sortField = $col;
@@ -26,7 +26,7 @@ if (isset($_POST['source']) && isset($_POST['column']) && isset($_POST['order'])
     $people->sortPeople($sortField, $direction);
 
     // Generate the table(s) and/or error messages.
-    $view = new viewTable($people);
+    $view = new viewTable($config, $people);
     $view->generateHMTL($sortField, $direction);
     $view->output_page($col, $direction);
 
