@@ -9,7 +9,7 @@ class person
     private $messages = [
         'Age' => ['notNum' => 'Age is not numeric.', 'young' => 'Age is less than ', 'old' => 'Age is greater than '],
         'long' => ' is longer than ',
-        'empty' => ' is empty.'
+        'empty' => ' is empty. '
     ];
 
     /*
@@ -19,9 +19,9 @@ class person
      */
     public function __construct($stObj)
     {
-        $this->messages['Age']['young'] .= $this->minAge;
-        $this->messages['Age']['old'] .= $this->maxAge;
-        $this->messages['long'] .= $this->maxLen . " characters.";
+        $this->messages['Age']['young'] .= $this->minAge . ". ";
+        $this->messages['Age']['old'] .= $this->maxAge . ". ";
+        $this->messages['long'] .= $this->maxLen . " characters. ";
 
         foreach ($stObj as $attribute => $value) {
             if (in_array($attribute, $this->filter)) {
@@ -37,15 +37,15 @@ class person
             $this->Errs .= $this->messages['Age']['notNum'];
             $this->isValid = false;
         } elseif ((float)$this->Age < $this->minAge) {
-            $this->Errs .= $this->messages['Age']['young'] . ".";
+            $this->Errs .= $this->messages['Age']['young'];
             $this->isValid = false;
         } elseif ((float)$this->Age > $this->maxAge) {
-            $this->Errs .= $this->messages['Age']['old'] . ".";
+            $this->Errs .= $this->messages['Age']['old'];
             $this->isValid = false;
         } else {
             $this->Age = round($this->Age, 2);
-            $this->isFilled();
         }
+        $this->isFilled();
     }
 
     /*
@@ -59,7 +59,6 @@ class person
             if (mb_strlen($this->$key) == 0) {
                 $this->Errs .= $key . $this->messages['empty'];
                 $this->isValid = false;
-                break;
             }
     }
 
