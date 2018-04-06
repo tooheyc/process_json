@@ -4,6 +4,7 @@ INSTALLATION INSTRUCTIONS
 
 This is a simple project that should work on most versions of PHP, but it has been tested on PHP Version 7.1.8 and PHP Version 7.2.2, so please use one of those. Either clone or copy the zip file to your server's root directory from github:
 https://github.com/tooheyc/process_json
+
 If you download the zip file, you'll need to unzip it to the server's root directory.
 
 The only library it uses is jQuery and there is a preconfigured .htaccess file, so there should be no need to configure anything. Simply type the URL of the site into a browser and read the instructions for sorting and choosing data sets. Note that Javascript is required, so please check that your browser has it on.
