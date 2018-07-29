@@ -9,11 +9,11 @@ If you download the zip file, you'll need to unzip it to the server's root direc
 
 The only library it uses is jQuery and there is a preconfigured .htaccess file, so there should be no need to configure anything. Simply type the URL of the site into a browser and read the instructions for sorting and choosing data sets. Note that Javascript is required, so please check that your browser has it on.
 
-The data sources are located (with the exception of the first one at https://x-24.io/DevTestData.json ) in the tests directory.
+The data sources are located (with the exception of the first one) in the tests directory.
 
 USE
 
-When the page first loads, it will display a single table of the 24 Data JSON file sorted by last name, in descending order. There will be two buttons "Ascending” and "Descending” for changing the sort order, and selecting one of the table's three column headers will change the sort to that column. The current sort direction and column are in dark blue with white text.
+When the page first loads, it will display a single table of the initial data set sorted by last name, in descending order. There will be two buttons "Ascending” and "Descending” for changing the sort order, and selecting one of the table's three column headers will change the sort to that column. The current sort direction and column are in dark blue with white text.
 
 Changing from one data source to another (there are 3 additional test cases provided) will retain the current sort, except for “Test case 2”, which has malformed json, so it will not sort. You can “fix” “Test case 2” by adding an opening ( [ ) bracket. That test case and “Test case 3” have names starting with UTF8 characters above ascii, demonstrating that the sort functions correctly with multibyte characters. Example, in “Test case 3”, “ÞThomas” correctly appears before “ßMax” in an ascending sort.
 
