@@ -12,8 +12,14 @@ if (isset($_POST['source']) && isset($_POST['column']) && isset($_POST['order'])
     if (isset($_SESSION['source'])) {
         $json = file_get_contents('./tests/' . $_SESSION['source'] . '.txt');
     } else {
-        require "./helperFunctions/curlit.php";
-        $json = curlIt("https://x-24.io/DevTestData.json");
+//        $url = 'http://some.data.source';
+//        require "./helperFunctions/curlit.php";
+//        $json = curlIt($url);
+        $json = '[{"FName":"Bob","LName":"Rasputin","Age":"25"},
+{"FName":"Larry","LName":"polanski","Age":"25"},
+{"FName":"Max","LName":"Xzavier","Age":"25"},
+{"FName":"Steve","LName":"filman","Age":"25"},
+{"FName":"Thomas","LName":"Govenator","Age":"25"}]';
     }
 
     // Process the json into "good" and "bad" data sets.

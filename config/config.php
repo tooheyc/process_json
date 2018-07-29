@@ -28,7 +28,7 @@ $config = [
     ],
 
     'options' => [
-        'default' => '24 Data JSON file',
+        'default' => 'Initial source',
         'test1' => 'Test case 1',
         'test2' => 'Test case 2',
         'test3' => 'Test case 3'],
